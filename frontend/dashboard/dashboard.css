@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 * {
     margin: 0;
@@ -70,7 +70,8 @@ body {
 }
 
 .content {
-    margin-top: 70px;
+    margin-top: 80px; /* Adjust for navbar height */
+    padding: 20px;
 }
 
 .center {
@@ -88,6 +89,7 @@ body {
     color: #575757;
     font-size: 24px;
     font-weight: 500;
+    margin-bottom: 40px;
 }
 
 .information {
@@ -103,7 +105,31 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 20px 0;
+}
+
+.management-system {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.inline-section {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.inline-item {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px 0;
+}
+
+.inline-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 .footer {
@@ -113,7 +139,7 @@ body {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .footer h2, .footer p {

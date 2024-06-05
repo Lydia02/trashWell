@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeSidebar = document.getElementById('close-sidebar');
     const overlay = document.getElementById('overlay');
     const userProfile = document.getElementById('userProfile');
+    const scheduleForm = document.getElementById('scheduleForm');
+    const collectionsList = document.getElementById('collections');
 
     function setupSidebar() {
         if (profileIcon && sidebar && closeSidebar && overlay) {
@@ -63,6 +65,73 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    function fetchSchedules() {
+        const token = sessionStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = '../index.html'; // Redirect to login if no token is found
+            return;
+        }
+
+        fetch('http://localhost:3000/api/schedules', {
+            method: 'GET',
+            headers: { 'Authorization': `Bearer ${token}` }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error:', data.error);
+                alert('Error fetching schedules. Please try again.');
+            } else {
+                collectionsList.innerHTML = data.map(collection => `
+                    <li>${collection.date} at ${collection.time}</li>
+                `).join('');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching schedules:', error);
+            alert('Error fetching schedules. Please try again.');
+        });
+    }
+
+    scheduleForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(scheduleForm);
+        const data = {
+            date: formData.get('date'),
+            time: formData.get('time')
+        };
+
+        const token = sessionStorage.getItem('authToken');
+        if (!token) {
+            window.location.href = '../index.html'; // Redirect to login if no token is found
+            return;
+        }
+
+        fetch('http://localhost:3000/api/schedules', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error:', data.error);
+                alert('Error scheduling collection. Please try again.');
+            } else {
+                alert('Collection scheduled successfully!');
+                fetchSchedules(); // Refresh the list of schedules
+            }
+        })
+        .catch(error => {
+            console.error('Error scheduling collection:', error);
+            alert('Error scheduling collection. Please try again.');
+        });
+    });
+
     setupSidebar();
     setupUserInfoAndLogout();
+    fetchSchedules();
 });
