@@ -1,4 +1,3 @@
-```markdown
 # Smart Waste Management System
 
 ## Table of Contents
