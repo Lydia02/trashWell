@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrashWell - Login and Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="welcome">
+        <h1>Welcome to TrashWell</h1>
+        <p>Kindly login if you already have an account. If not, please sign up.</p>
+    </div>
+
+    <div class="container">
+        <!-- Registration Form -->
+        <form id="registerForm" style="display:none;">
+            <h2>Register</h2>
+            <input type="text" name="firstname" placeholder="First Name" autocomplete="given-name" required>
+            <input type="text" name="lastname" placeholder="Last Name" autocomplete="family-name" required>
+            <input type="text" name="address" placeholder="Address" autocomplete="address-line1" required>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="new-password" required>
+            <button type="submit">Register</button>
+            <a href="#" id="showLogin">Already have an account? Login</a>
+        </form>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <h2>Login</h2>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+            <button type="submit">Login</button>
+            <a href="#" id="showRegister">Don't have an account? Sign up</a>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

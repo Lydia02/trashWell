@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu">
+            <div class="logo">
+                <a href="#">TrashWell</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars menu-icon"></i>
+            </div>
+            <ul id="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#recycling">Recycling</a></li>
+                <li><a href="../index.html">Signup</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="#" id="profile-icon">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="center">
+            <div class="title">Welcome to Your Dashboard</div>
+            <div class="sub_title">Manage Your Waste Collection and Recycling Efforts</div>
+        </div>
+        <div class="information">
+            <div class="article">
+                <h2 id="about">About Waste Management</h2>
+                <p>Waste management is an essential service that involves the collection, transport, processing, recycling, and disposal of waste. Proper waste management is crucial for maintaining a clean and sustainable environment.</p>
+                <h2 id="schedule">Collection Schedule</h2>
+                <p>Manage your waste collection schedule efficiently to ensure timely disposal of waste. Keeping track of your collection schedule helps in maintaining a clean and healthy living environment.</p>
+                <h2 id="recycling">Recycling Tracker</h2>
+                <p>Track your recycling efforts and see the positive impact you are making on the environment. Recycling helps reduce the amount of waste that ends up in landfills and conserves natural resources.</p>
+            </div>
+        </div>
+        <div id="footer" class="footer">
+            <h2>Contact Us</h2>
+            <p>Email: contact@trashwell.com | Phone: +123456789</p>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>User Profile</h2>
+            <span id="close-sidebar">&times;</span>
+        </div>
+        <div class="sidebar-content">
+            <p id="userProfile">Loading...</p>
+            <button id="logout">Logout</button>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
