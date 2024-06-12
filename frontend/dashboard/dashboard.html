@@ -20,7 +20,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about-section">About</a></li>
                 <li><a href="../schedule/schedule.html">Schedule</a></li>
-                <li><a href="../recycle/recycle.html">Recycling</a></li>
+                <li><a href="recycle.html">Recycling</a></li>
                 <li><a href="../index.html">Signup</a></li>
                 <li><a href="#footer">Contact</a></li>
                 <li><a href="#" id="profile-icon">Account</a></li>
@@ -36,31 +36,67 @@
         <div class="information">
             <div class="article" id="about-section">
                 <h2>About Waste Management</h2>
-                <p>TrashWell is an innovative web application that streamlines waste management processes for households, waste collection services, and administrators. Proper waste management is crucial for maintaining a clean and sustainable environment.</p>
-                <p>The objective of this project is to develop a smart waste management system that enhances waste collection efficiency, promotes recycling efforts, and provides insights into environmental impact metrics.</p>
-                <p>The purpose of TrashWell is to facilitate efficient waste collection, encourage recycling, and offer valuable environmental insights to users.</p>
+                <div class="about-p">
+                    <p>TrashWell is an innovative web application that streamlines waste management processes for households, waste collection services, and administrators. Proper waste management is crucial for maintaining a clean and sustainable environment.</p>
+                    <p>The objective of this project is to develop a smart waste management system that enhances waste collection efficiency, promotes recycling efforts, and provides insights into environmental impact metrics.</p>
+                    <p>The purpose of TrashWell is to facilitate efficient waste collection, encourage recycling, and offer valuable environmental insights to users.</p>
+                </div>
             </div>
 
             <div class="management-system">
-                <h2>Our Management System</h2>
+                <h2 class="management-h2">Our Management System</h2>
+                <h3 class="management-h3">Collection Schedule</h3>
                 <div class="inline-section">
                     <div class="inline-item" id="schedule-section">
-                        <h2>Collection Schedule</h2>
-                        <img src="../img/trash1.jpeg" alt="Collection Schedule Image">
-                        <p>Manage your waste collection schedule efficiently to ensure timely disposal of waste. Keeping track of your collection schedule helps in maintaining a clean and healthy living environment.</p>
+                        <img src="images/trash1.jpeg" width="600px" height="500px" alt="Collection Schedule Image">
+                        <p>Efficiently managing your waste collection schedule ensures timely disposal, which is crucial for maintaining a clean and healthy living environment. Mark your collection days on a calendar or set reminders to avoid missing pickups. Separate waste properly by using labeled bins for recyclables, organic waste, and general waste. Prepare waste by securely bagging it to prevent spillage and minimize odors, and flatten or crush items to save space.</p>
                     </div>
-                    <div class="inline-item" id="recycling-section">
-                        <h2>Recycling Tracker</h2>
-                        <img src="../img/tracker.png" alt="Recycling Tracker Image">
-                        <p>Track your recycling efforts and see the positive impact you are making on the environment. Recycling helps reduce the amount of waste that ends up in landfills and conserves natural resources.</p>
+                </div>
+                <div class="inline-section">
+                    <h3 class="recycle-h3">Recycling Tracker</h3>
+                    <div class="inline-item1" id="recycling-section">
+                        <p>Tracking your recycling efforts allows you to see the positive impact you are making on the environment. By recycling, you help reduce the amount of waste that ends up in landfills, which in turn decreases pollution and the strain on our waste management systems. Recycling conserves natural resources by reusing materials like paper, plastic, and metal, reducing the need for new raw materials. This practice also saves energy, as manufacturing products from recycled materials often requires less energy compared to producing them from virgin resources.</p>  
+                        <img src="images/tracker.png" width="600px" height="500px" alt="Recycling Tracker Image">                
                     </div>
                 </div>
             </div>
         </div>
-        <div id="footer" class="footer">
-            <h2>Contact Us</h2>
-            <p>Email: contact@trashwell.com | Phone: +123456789</p>
-        </div>
+
+        <section id="contact">
+            <div class="container-contact">
+               <h2>Contact Us</h2>
+               <div class="contact-wrapper">
+                   <div class="contact-form">
+                       <h3>Send Us a message</h3>
+                       <form action="">
+                           <div class="form-group">
+                              <input type="text" name="name" placeholder="Your Name">
+                           </div>
+          
+                           <div class="form-group">
+                              <input type="email" name="email" placeholder="Your Email">
+                           </div>
+          
+                           <div class="form-group">
+                              <textarea name="message" placeholder="Your Message" cols="30" rows="10"></textarea>
+                           </div>
+          
+                           <button type="submit">Send Message</button>
+                       </form>
+                  </div>
+        
+                   <div class="contact-info">
+                      <h3>Contact Information</h3>
+                      <p><i class="fas fa-phone"></i>+21 123 456 7890</p>
+                      <p><i class="fas fa-envelope"></i>info@example.com</p>
+                      <p><i class="fas fa-map-marker"></i>KG Main Street, Downtown Kigali</p>
+                   </div>
+                </div>
+            </div>
+        </section>
+      <footer>
+        <p>&copy; 2024 TrashWell. All rights reserved.</p>
+      </footer>
     </div>
 
     <div id="sidebar" class="sidebar">

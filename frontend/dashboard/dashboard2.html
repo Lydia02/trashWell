@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu">
+            <div class="logo">
+                <a href="#">TrashWell</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars menu-icon"></i>
+            </div>
+            <ul id="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="../schedule/schedule.html">Schedule</a></li>
+                <li><a href="../recycle/recycle.html">Recycling</a></li>
+                <li><a href="../index.html">Signup</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="#" id="profile-icon">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="center" id="home">
+            <div class="title">Welcome to Your Dashboard</div>
+            <div class="sub_title">Manage Your Waste Collection and Recycling Efforts</div>
+        </div>
+        <div class="information">
+            <div class="article" id="about-section">
+                <h2>About Waste Management</h2>
+                <p>TrashWell is an innovative web application that streamlines waste management processes for households, waste collection services, and administrators. Proper waste management is crucial for maintaining a clean and sustainable environment.</p>
+                <p>The objective of this project is to develop a smart waste management system that enhances waste collection efficiency, promotes recycling efforts, and provides insights into environmental impact metrics.</p>
+                <p>The purpose of TrashWell is to facilitate efficient waste collection, encourage recycling, and offer valuable environmental insights to users.</p>
+            </div>
+
+            <div class="management-system">
+                <h2>Our Management System</h2>
+                <div class="inline-section">
+                    <div class="inline-item" id="schedule-section">
+                        <h2>Collection Schedule</h2>
+                        <img src="../img/trash1.jpeg" alt="Collection Schedule Image">
+                        <p>Manage your waste collection schedule efficiently to ensure timely disposal of waste. Keeping track of your collection schedule helps in maintaining a clean and healthy living environment.</p>
+                    </div>
+                    <div class="inline-item" id="recycling-section">
+                        <h2>Recycling Tracker</h2>
+                        <img src="../img/tracker.png" alt="Recycling Tracker Image">
+                        <p>Track your recycling efforts and see the positive impact you are making on the environment. Recycling helps reduce the amount of waste that ends up in landfills and conserves natural resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="footer">
+            <h2>Contact Us</h2>
+            <p>Email: contact@trashwell.com | Phone: +123456789</p>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>User Profile</h2>
+            <span id="close-sidebar">&times;</span>
+        </div>
+        <div class="sidebar-content">
+            <p id="userProfile">Loading...</p>
+            <button id="logout">Logout</button>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
