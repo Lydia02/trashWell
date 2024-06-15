@@ -12,7 +12,7 @@ body {
     background-image: url(https://d1b3667xvzs6rz.cloudfront.net/2023/11/importance-recycling-learn-about-3-types-wastes-their-recycling-methods.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 71vh;
+    height: 74.5vh;
     width: 100vw;
 }
 
@@ -53,7 +53,7 @@ body {
     border: none;
     padding: 1rem;
     color: white;
-    background-color: blueviolet;
+    background-color: #1e2d3b;
 }
 
 .registration {
@@ -95,12 +95,12 @@ body {
     height: 3rem;
     border: none;
     color: white;
-    background-color: blueviolet;
+    background-color: #1e2d3b;
 }
 
 .form h4 {
     font-size: small;
-    color:  blue;
+    color:  #1e2d3b;
     margin-left: 2rem;
     margin-top: 1.5rem;
 }
@@ -110,11 +110,19 @@ body {
 @media screen  and (max-width: 800px) {
 
     .content {
-        margin-left: 6rem;
+        margin-left: 5rem;
     }
 
     .form {
         margin-left: 41rem;
+    }
+
+    .blackcover {
+        margin-left: -2rem;
+    }
+
+    body {
+        height: 73.6vh;
     }
 }
 
@@ -123,10 +131,10 @@ body {
 @media screen  and (max-width: 500px) {
 
     body {
-        background-image: url(images/Asset.jpeg);
+        background-image: url(https://d1b3667xvzs6rz.cloudfront.net/2023/11/importance-recycling-learn-about-3-types-wastes-their-recycling-methods.jpeg);
         background-repeat: no-repeat;
         background-position: center;
-        height: 77vh;
+        height: 79vh;
         width: 100vw;
     }
 
