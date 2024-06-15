@@ -1,18 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recycling Tracker</title>
-    <link rel="stylesheet" href="schedule.css">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 </head>
 <body>
     <nav class="navbar">
         <div class="menu">
             <div class="logo">
-                <img src="images/Pale_Dogwood.png" width="200px" alt="logo">
+                <a href="#">TrashWell</a>
             </div>
             <div class="menu-toggle" id="menu-toggle">
                 <i class="fas fa-bars menu-icon"></i>
@@ -37,13 +36,13 @@
             <div class="article">
                 <form id="recyclingForm">
                     <h2>Log a New Recycling Activity</h2>
-                    <label for="date">Date:</label>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="date" id="date" name="date" required><br><br><br><br>
-                    <label for="material">Material:</label>&nbsp; &nbsp;&nbsp;
-                    <input type="text" id="material" name="material" required><br><br><br><br>
-                    <label for="amount">Amount (in kg):</label>&nbsp; &nbsp;&nbsp;
-                    <input type="number" id="amount" name="amount" class="test" required><br><br><br>
-                    <button type="submit" class="right-button">Log Activity</button>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <label for="material">Material:</label>
+                    <input type="text" id="material" name="material" required>
+                    <label for="amount">Amount (in kg):</label>
+                    <input type="number" id="amount" name="amount" required>
+                    <button type="submit">Log Activity</button>
                 </form>
                 <div id="recyclingList">
                     <h2>Your Recycling Activities</h2>
@@ -51,21 +50,11 @@
                 </div>
             </div>
         </div>
-
-        <footer>
-            <div  class="footer-branch">
-                <h2>Contact Information</h2>
-                <p><i class="fas fa-envelope"></i>&nbsp;&nbsp;Email: contact@trashwell.com</p>
-                <p><i class="fas fa-phone"></i>&nbsp;&nbsp;TEL: +21 123 456 7890</p>
-                <p><i class="fas fa-map-marker"></i>&nbsp;&nbsp;KG Main Street, Downtown Kigali</p>
-            </div><br><br>
-            <div class="copy">
-                <p>| &copy; 2024 TrashWell. All rights reserved. |</p>
-            </div>
-        </footer>
+        <div id="footer" class="footer">
+            <h2>Contact Us</h2>
+            <p>Email: contact@trashwell.com | Phone: +123456789</p>
+        </div>
     </div>
-
-    
 
     <div id="sidebar" class="sidebar">
         <div class="sidebar-header">
