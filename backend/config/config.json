@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "wms",
+    "username": "wmsy",
     "password": "group15",
-    "database": "wms",
+    "database": "wmsy",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "wms",
+    "username": "wmsy",
     "password": "group15",
-    "database": "wms",
+    "database": "wmsy",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "wms",
+    "username": "wmsy",
     "password": "group15",
-    "database": "wms",
+    "database": "wmsy",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

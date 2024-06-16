@@ -1,7 +1,6 @@
-// routes/schedules.js
 const express = require('express');
 const { WasteCollection } = require('../models');
-const authenticateToken = require('../middleware/auth');
+const { authenticateToken } = require('../middleware/auth'); // Correct import
 const router = express.Router();
 
 router.use(authenticateToken); // Apply authentication to all schedule routes

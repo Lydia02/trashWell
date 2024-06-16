@@ -1,40 +1,64 @@
-const { Sequelize } = require('sequelize');
-const WasteCollection = require('./wasteCollection');
-const RecyclingEntry = require('./RecyclingEntry');
+'use strict';
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
 require('dotenv').config();
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.json')[env];
+const db = {};
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_HOST,
-    dialect: 'postgres',
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
-});
-
-const modelDefiners = [
-    require('./user'), // Import the user model definition
-    require('./wasteCollection'),
-    require('./RecyclingEntry'),
-];
-
-// Define all models according to their files.
-for (const modelDefiner of modelDefiners) {
-    modelDefiner(sequelize, Sequelize.DataTypes);
+// Initialize Sequelize
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-// Apply associations if there are any
-// (e.g., if you have relationships like User.hasMany(Posts) you will define them here)
-sequelize.sync(); // You can also handle syncing in a more controlled manner in your app startup
+// Import all models
+const modelDefiners = [
+  require('./user'), // Import the user model definition
+  require('./wasteCollection'),
+  require('./RecyclingEntry'),
+];
 
-const db = {
-    sequelize,
-    Sequelize,
-    User: sequelize.models.User, 
-    WasteCollection: sequelize.models.WasteCollection,
-    RecyclingEntry: sequelize.models.RecyclingEntry,
+// Define all models according to their files
+for (const modelDefiner of modelDefiners) {
+  modelDefiner(sequelize, Sequelize.DataTypes);
+}
+
+// Apply associations
+const { User, WasteCollection, RecyclingEntry } = sequelize.models;
+
+User.associate = (models) => {
+  User.hasMany(models.WasteCollection, { foreignKey: 'userId' });
 };
+
+WasteCollection.associate = (models) => {
+  WasteCollection.belongsTo(models.User, { foreignKey: 'userId' });
+};
+
+RecyclingEntry.associate = (models) => {
+  RecyclingEntry.belongsTo(models.User, { foreignKey: 'userId' });
+};
+
+// Call the associate methods
+User.associate({ WasteCollection, RecyclingEntry });
+WasteCollection.associate({ User });
+RecyclingEntry.associate({ User });
+
+// Synchronize the models with the database
+sequelize.sync().then(() => {
+  console.log('Database synchronized');
+}).catch(error => {
+  console.error('Error synchronizing the database:', error);
+});
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+db.User = User;
+db.WasteCollection = WasteCollection;
+db.RecyclingEntry = RecyclingEntry;
 
 module.exports = db;

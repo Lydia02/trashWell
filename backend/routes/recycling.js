@@ -1,7 +1,6 @@
-// routes/recycling.js
 const express = require('express');
 const { RecyclingEntry } = require('../models');
-const authenticateToken = require('../middleware/auth'); // Ensure this path is correct
+const { authenticateToken } = require('../middleware/auth'); // Corrected import
 const router = express.Router();
 
 router.use(authenticateToken); // Apply authentication to all recycling routes
@@ -29,12 +28,28 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Get a specific recycling entry
+router.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const userId = req.user.id;
+        const entry = await RecyclingEntry.findOne({ where: { id, userId } });
+        if (!entry) {
+            return res.status(404).json({ error: 'Entry not found' });
+        }
+        res.json(entry);
+    } catch (error) {
+        res.status(500).json({ error: 'Error retrieving entry: ' + error.message });
+    }
+});
+
 // Update an existing recycling entry
 router.put('/:id', async (req, res) => {
     try {
         const { date, material, amount } = req.body;
         const { id } = req.params;
-        const updated = await RecyclingEntry.update({ date, material, amount }, { where: { id, userId: req.user.id } });
+        const userId = req.user.id;
+        const updated = await RecyclingEntry.update({ date, material, amount }, { where: { id, userId } });
         res.json({ message: 'Recycling entry updated successfully', updated });
     } catch (error) {
         res.status(500).json({ error: 'Error updating recycling entry: ' + error.message });
@@ -45,7 +60,8 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        await RecyclingEntry.destroy({ where: { id, userId: req.user.id } });
+        const userId = req.user.id;
+        await RecyclingEntry.destroy({ where: { id, userId } });
         res.json({ message: 'Recycling entry deleted successfully' });
     } catch (error) {
         res.status(500).json({ error: 'Error deleting recycling entry: ' + error.message });

@@ -2,18 +2,17 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
-const authenticateToken = require('../middleware/auth');
+const { authenticateToken } = require('../middleware/auth'); // Ensure this path is correct
 const router = express.Router();
-
 
 // Registration Endpoint
 router.post('/register', async (req, res) => {
     const { firstname, lastname, address, email, password } = req.body;
     try {
         // Check if user already exists
-        const existingUser = await User.findOne({ where: { email: email } });
+        const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
-            return res.status(409).json({ error: 'User already exists.' });  // 409 Conflict for existing resource
+            return res.status(409).json({ error: 'User already exists.' });
         }
 
         // Hash the password
@@ -26,7 +25,8 @@ router.post('/register', async (req, res) => {
             lastname,
             address,
             email,
-            password: hash
+            password: hash,
+            role: 'user' // Default role
         });
 
         res.status(201).json({ message: 'User registered successfully', user: { id: newUser.id, email: newUser.email } });
@@ -35,9 +35,6 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ error: 'Error registering new user.' });
     }
 });
-
-module.exports = router;
-
 
 // Login Endpoint
 router.post('/login', async (req, res) => {
@@ -61,15 +58,15 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Error logging in user.' });
     }
+});
 
-    // GET /api/user/details
+// Protected route to get user details
 router.get('/details', authenticateToken, async (req, res) => {
     try {
         const user = await User.findByPk(req.user.id);
         if (!user) {
             return res.status(404).json({ error: 'User not found!' });
         }
-        // Return only safe details (omit password and other sensitive data)
         res.json({
             id: user.id,
             firstname: user.firstname,
@@ -78,11 +75,8 @@ router.get('/details', authenticateToken, async (req, res) => {
             address: user.address
         });
     } catch (error) {
-        console.error('Error fetching user details:', error);
         res.status(500).json({ error: 'Error fetching user details.' });
     }
-});
-
 });
 
 module.exports = router;
