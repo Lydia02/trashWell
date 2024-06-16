@@ -6,11 +6,17 @@ body {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: rgb(12, 40, 23); /* Dark green background */
+
     color: aliceblue; /* Light text for dark backgrounds */
     margin: 0;
     padding: 0;
+    background-image: url(https://d1b3667xvzs6rz.cloudfront.net/2023/11/importance-recycling-learn-about-3-types-wastes-their-recycling-methods.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 71vh;
+    width: 100vw
 }
+
 
 .welcome {
     text-align: center;
@@ -18,7 +24,7 @@ body {
 }
 
 form {
-    background: #9CC532; /* Light green background */
+    background: #637d4a; /* Light green background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
