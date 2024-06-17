@@ -1,4 +1,5 @@
 # Smart Waste Management System
+# TrashWell
 
 ## Table of Contents
 - [Overview](#overview)
@@ -10,16 +11,19 @@
   - [Running the Application](#running-the-application)
   - [Waste Collection Schedule](#waste-collection-schedule)
   - [Recycling Tracker](#recycling-tracker)
+  - [User Management](#user-management)
 - [Testing](#testing)
   - [Schedule Test](#schedule-test)
   - [Recycling Test](#recycling-test)
+  - [User Authentication Test](#user-authentication-test)
+- [CI/CD Pipeline](#cicd-pipeline)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contributor](#contributor)
 
 ## Overview
 
-The Smart Waste Management System is an innovative web application designed to streamline waste management processes for households, waste collection services, and administrators. The system aims to enhance waste collection efficiency, promote recycling efforts, and provide insights into environmental impact metrics.
+TrashWell the Smart Waste Management System  is an innovative web application designed to streamline waste management processes for households, waste collection services, and administrators. The system aims to enhance waste collection efficiency, promote recycling efforts, and provide insights into environmental impact metrics.
 
 ## Features
 
@@ -60,6 +64,7 @@ npx sequelize-cli db:migrate
 When you clone the repository, you'll find the following directories and files:
 - **`frontend/`**: Contains the HTML, CSS, and JavaScript files for the frontend.
 - **`backend/`**: Contains the backend code including routes, models, and middleware.
+- **`admin/`**: Contains the HTML, CSS, and JavaScript files for the admin interface.
 - **`models/`**: Defines the database models.
 - **`routes/`**: Contains the route handlers for different functionalities.
 - **`middleware/`**: Contains middleware for authentication and error handling.
@@ -133,6 +138,13 @@ This command will start the server and the application will be accessible at `ht
   DELETE /api/recycling/:id
   ```
 
+### User Management
+
+- **Get All Users**: Retrieve all users for the admin.
+  ```bash
+  GET /api/admin/users
+  ```
+
 ## Testing
 
 ### Schedule Test
@@ -142,6 +154,57 @@ To test the scheduling functionality, use tools like Postman or CURL to send req
 ### Recycling Test
 
 To test the recycling functionality, use tools like Postman or CURL to send requests to the `/api/recycling` endpoint.
+
+### User Authentication Test
+
+#### Example `tests/auth.test.js`
+
+```javascript
+const request = require('supertest');
+const app = require('../app'); // make sure the path is correct
+
+describe('User Authentication', () => {
+  it('should signup a new user', async () => {
+    const res = await request(app)
+      .post('/api/auth/signup')
+      .send({
+        firstname: 'Lydia',
+        lastname: 'Ojoawo',
+        email: 'Lydia@example.com',
+        password: 'secret123',
+        address: '123 Main St'
+      });
+    expect(res.statusCode).toBe(201);
+    expect(res.body.message).toContain('registered successfully');
+  });
+
+  it('should login an existing user', async () => {
+    const res = await request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'Lydia@example.com',
+        password: 'secret123'
+      });
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toHaveProperty('token');
+  });
+
+  it('should not login with incorrect credentials', async () => {
+    const res = await request(app)
+      .post('/api/auth/login')
+      .send({
+        email: 'Lydia@example.com',
+        password: 'wrongpassword'
+      });
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toContain('Invalid credentials');
+  });
+});
+```
+
+## CI/CD Pipeline
+
+The CI/CD pipeline is set up using GitHub Actions. You can find the configuration in the `.github/workflows/ci-cd.yml` file.
 
 ## Contributing
 
@@ -155,5 +218,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 
 - **Lydia Ojoawo** - [GitHub Profile](https://github.com/Lydia02)
 
+- **Damilare Azeez** - [GitHub Profile](https://github.com/dazeez1)
+
+- **Nduka Oluchi** - [GitHub Profile](https://github.com/Lisky-pixel)
+
+- **Marvelous Nelson** - [GitHub Profile](https://github.com/mnelson-1)
+
+- **Gabriel** - [GitHub Profile](https://github.com/KhotKeys)
+
+## Live Applications
+
+- **Web Application:** [https://trashwell.onrender.com](https://trashwell.onrender.com)
+- **Admin Web Application:** [https://trashwelladmin.onrender.com](https://trashwelladmin.onrender.com)
+  - **Admin Credentials:**
+    - **Email:** admin1@gmail.com
+    - **Password:** secret
+
 ## Happy Coding 🎉
-```
