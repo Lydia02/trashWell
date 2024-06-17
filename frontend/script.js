@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("loginForm").style.display = "block";
       });
   
-    // Login form submission
+    // Login form submis
     document
       .getElementById("loginForm")
       .addEventListener("submit", function (event) {

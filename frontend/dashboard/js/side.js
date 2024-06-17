@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/auth/details', {
+        fetch('https://trashwell-1.onrender.com/api/auth/details', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
