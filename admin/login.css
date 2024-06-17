@@ -45,7 +45,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 300px;
     text-align: center;
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
 .login-form input {
-    width: 100%;
+    width: 98%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid var(--background-color3);
