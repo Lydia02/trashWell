@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
-const { token } = require('./setup');
+const { token } = require('./setup'); // Import the token from setup.js
 
 describe('Recycling Activities', () => {
   test('should create a recycling activity', async () => {
@@ -23,15 +23,8 @@ describe('Recycling Activities', () => {
   });
 
   test('should update a recycling activity', async () => {
-    const newActivity = await request(app)
-      .post('/api/recycling')
-      .set('Authorization', `Bearer ${token}`)
-      .send({ date: '2023-12-01', material: 'Plastic', amount: 5, userId: 1 });
-
-    const recyclingId = newActivity.body.id;
-
     const res = await request(app)
-      .put(`/api/recycling/${recyclingId}`)
+      .put(`/api/recycling/${recyclingId}`) // Replace recyclingId with actual ID
       .set('Authorization', `Bearer ${token}`)
       .send({ amount: 3.5 });
 
@@ -40,15 +33,8 @@ describe('Recycling Activities', () => {
   });
 
   test('should delete a recycling activity', async () => {
-    const newActivity = await request(app)
-      .post('/api/recycling')
-      .set('Authorization', `Bearer ${token}`)
-      .send({ date: '2023-12-01', material: 'Plastic', amount: 5, userId: 1 });
-
-    const recyclingId = newActivity.body.id;
-
     const res = await request(app)
-      .delete(`/api/recycling/${recyclingId}`)
+      .delete(`/api/recycling/${recyclingId}`) // Replace recyclingId with actual ID
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
