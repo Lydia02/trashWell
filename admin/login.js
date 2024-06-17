@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const email = loginForm.email.value;
         const password = loginForm.password.value;
 
-        fetch('http://localhost:3000/api/adminauth/login', { 
+        fetch('https://trashwell-1.onrender.com/adminauth/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/admin/recycling', {
+        fetch('https://trashwell-1.onrender.com/api/admin/recycling', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/admin/schedules', {
+        fetch('https://trashwell-1.onrender.com/api/admin/schedules', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/admin/users', {
+        fetch('hhttps://trashwell-1.onrender.com/api/admin/users', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/auth/details', {
+        fetch('https://trashwell-1.onrender.com/api/auth/details', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })

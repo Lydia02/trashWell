@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var password = this.elements["password"].value;
 
       $.ajax({
-        url: "http://localhost:3000/api/auth/login",
+        url: "https://trashwell-1.onrender.com/auth/login",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ email: email, password: password }),
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       var password = this.elements["password"].value;
 
       $.ajax({
-        url: "http://localhost:3000/api/auth/register",
+        url: "https://trashwell-1.onrender.com/api/auth/register",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/auth/details', {
+        fetch('https://trashwell-1.onrender.com/api/auth/details', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/schedules', {
+        fetch('https://trashwell-1.onrender.com/api/schedules', {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('http://localhost:3000/api/schedules', {
+        fetch('https://trashwell-1.onrender.com/api/schedules', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`http://localhost:3000/api/schedules/${currentEditId}`, {
+        fetch(`https://trashwell-1.onrender.com/api/schedules/${currentEditId}`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`http://localhost:3000/api/schedules/${id}`, {
+        fetch(`https://trashwell-1.onrender.com/api/schedules/${id}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
         })
