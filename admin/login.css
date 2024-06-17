@@ -8,9 +8,16 @@
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://d1b3667xvzs6rz.cloudfront.net/2023/11/importance-recycling-learn-about-3-types-wastes-their-recycling-methods.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 71vh;
+    width: 100vw
 }
+
 
 .login-container {
     display: flex;
@@ -38,7 +45,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 200px;
     text-align: center;
 }
 
