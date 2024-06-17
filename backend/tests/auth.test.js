@@ -2,12 +2,25 @@ const request = require('supertest');
 const app = require('../app'); // Make sure the path is correct
 
 describe('User Authentication', () => {
+  it('should signup a new user', async () => {
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'john.doe2@example.com',
+        password: 'secret123',
+        address: 'ib'
+      });
+    expect(res.statusCode).toBe(201);
+    expect(res.body.message).toContain('registered successfully');
+  });
 
   it('should login an existing user', async () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'john.doe@example.com',
+        email: 'john.doe2@example.com',
         password: 'secret123'
       });
     expect(res.statusCode).toBe(200);
@@ -18,7 +31,7 @@ describe('User Authentication', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'john.doe@example.com',
+        email: 'john.doe2@example.com',
         password: 'wrongpassword'
       });
     expect(res.statusCode).toBe(400);
@@ -28,7 +41,7 @@ describe('User Authentication', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'john.doe@example.com',
+        email: 'john.doe2@example.com',
         password: 'secret123'
       });
     expect(res.statusCode).toBe(200);
