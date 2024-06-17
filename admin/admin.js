@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('https://trashwell-1.onrender.com/api/admin/recycling', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => {
             if (!response.ok) throw new Error(`Error: ${response.status}`);
@@ -46,7 +48,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('https://trashwell-1.onrender.com/api/admin/schedules', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => {
             if (!response.ok) throw new Error(`Error: ${response.status}`);
@@ -80,7 +84,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('hhttps://trashwell-1.onrender.com/api/admin/users', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => {
             if (!response.ok) throw new Error(`Error: ${response.status}`);
@@ -137,7 +143,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('https://trashwell-1.onrender.com/api/auth/details', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => {
             if (!response.ok) throw new Error('User not found!');

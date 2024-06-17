@@ -38,7 +38,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('https://trashwell-1.onrender.com/api/auth/details', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            hheaders: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => response.json())
         .then(data => {
@@ -75,7 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch('https://trashwell-1.onrender.com/api/schedules', {
             method: 'GET',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => response.json())
         .then(data => {
@@ -145,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch('https://trashwell-1.onrender.com/api/schedules', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
@@ -184,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function() {
         fetch(`https://trashwell-1.onrender.com/api/schedules/${currentEditId}`, {
             method: 'PUT',
             headers: {
-                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
@@ -218,7 +220,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
         fetch(`https://trashwell-1.onrender.com/api/schedules/${id}`, {
             method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${token}` }
+            headers: {
+                'Content-Type': 'application/json'
+            },
         })
         .then(response => response.json())
         .then(data => {
