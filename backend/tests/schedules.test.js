@@ -25,7 +25,7 @@ describe('Waste Collection Scheduling', () => {
   test('should update a waste collection schedule', async () => {
     // Replace {scheduleId} with an actual schedule ID from your database
     const res = await request(app)
-      .put(`/api/schedules/{scheduleId}`)
+      .put(`/api/schedules/${scheduleId}`)
       .set('Authorization', `Bearer ${token}`)
       .send({ time: '15:00' });
 
@@ -36,7 +36,7 @@ describe('Waste Collection Scheduling', () => {
   test('should delete a waste collection schedule', async () => {
     // Replace {scheduleId} with an actual schedule ID from your database
     const res = await request(app)
-      .delete(`/api/schedules/{scheduleId}`)
+      .delete(`/api/schedules/${scheduleId}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
