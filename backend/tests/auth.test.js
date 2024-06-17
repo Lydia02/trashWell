@@ -1,37 +1,40 @@
 const request = require('supertest');
-const app = require('../app');
+const app = require('../app'); // Make sure the path is correct
 
 describe('User Authentication', () => {
-  test('should signup a new user', async () => {
+  it('should signup a new user', async () => {
     const res = await request(app)
-      .post('/api/auth/signup')
+      .post('/api/auth/register')
       .send({
-        firstname: 'New',
-        lastname: 'User',
-        address: '456 New St',
-        email: 'newuser@example.com',
-        password: 'newpassword', // Ensure this matches your hashing logic
-        role: 'user'
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'john.doe@example.com',
+        password: 'secret123',
+        address: '123 Main St'
       });
-
     expect(res.statusCode).toBe(201);
-    expect(res.body).toHaveProperty('token');
+    expect(res.body.message).toContain('registered successfully');
   });
 
-  test('should login an existing user', async () => {
+  it('should login an existing user', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'test@example.com', password: 'password' });
-
+      .send({
+        email: 'john.doe@example.com',
+        password: 'secret123'
+      });
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('token');
   });
 
-  test('should not login with incorrect password', async () => {
+  it('should not login with incorrect credentials', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({ email: 'test@example.com', password: 'wrongpassword' });
-
-    expect(res.statusCode).toBe(401);
+      .send({
+        email: 'john.doe@example.com',
+        password: 'wrongpassword'
+      });
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toContain('Invalid credentials');
   });
 });
