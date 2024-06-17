@@ -231,7 +231,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 - **Web Application:** [https://trashwell.onrender.com](https://trashwell.onrender.com)
 - **Admin Web Application:** [https://trashwelladmin.onrender.com](https://trashwelladmin.onrender.com)
   - **Admin Credentials:**
-    - **Email:** admin1@gmail.com
+    - **Email:** admin2gmail.com
     - **Password:** secret
 
 ## Happy Coding 🎉
