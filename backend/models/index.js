@@ -10,35 +10,47 @@ const db = {};
 
 let sequelize;
 
-// Conditionally add SSL settings based on the environment
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  const sslConfig = env === 'production' ? {
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false // Use this if you are not using a certificate
+if (env === 'production') {
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASS,
+    {
+      host: process.env.DB_HOST,
+      dialect: 'postgres',
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      },
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
       }
     }
-  } : {};
-
-  sequelize = new Sequelize(config.database, config.username, config.password, {
-    host: config.host,
-    dialect: 'postgres',
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    },
-    ...sslConfig
-  });
+  );
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    {
+      host: config.host,
+      dialect: 'postgres',
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+      }
+    }
+  );
 }
 
-// Dynamically load models
-fs
-  .readdirSync(__dirname)
+fs.readdirSync(__dirname)
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
