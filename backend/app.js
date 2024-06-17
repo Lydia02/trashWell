@@ -23,5 +23,4 @@ app.get('/', (req, res) => {
     res.send('Smart Waste Management System is up and running!');
 });
 
-
 module.exports = app;
