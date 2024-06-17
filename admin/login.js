@@ -15,18 +15,19 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify({ email, password })
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                errorMessage.textContent = data.error;
-            } else {
-                sessionStorage.setItem('authToken', data.token);
-                window.location.href = 'index.html';
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => { throw new Error(data.error); });
             }
+            return response.json();
+        })
+        .then(data => {
+            sessionStorage.setItem('authToken', data.token);
+            window.location.href = 'index.html';
         })
         .catch(error => {
             console.error('Error logging in:', error);
-            errorMessage.textContent = 'An error occurred. Please try again.';
+            errorMessage.textContent = error.message;
         });
     });
 });
