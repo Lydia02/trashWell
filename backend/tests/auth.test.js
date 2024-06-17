@@ -1,46 +1,37 @@
 const request = require('supertest');
-const app = require('../app'); // Make sure the path is correct
+const app = require('../app');
 
 describe('User Authentication', () => {
-  it('should signup a new user', async () => {
-    // Try to register the user, expecting 201 for success or 409 if user already exists
+  test('should signup a new user', async () => {
     const res = await request(app)
-      .post('/api/auth/register')
+      .post('/api/auth/signup')
       .send({
-        firstname: 'khey',
-        lastname: 'deet',
-        email: 'ade1@gmail.com',
-        password: 'ade',
-        address: ''
+        firstname: 'New',
+        lastname: 'User',
+        address: '456 New St',
+        email: 'newuser@example.com',
+        password: 'newpassword', // Ensure this matches your hashing logic
+        role: 'user'
       });
 
-    if (res.statusCode === 409) {
-      console.log('User already exists, proceeding with login test.');
-    } else {
-      expect(res.statusCode).toBe(201);
-      expect(res.body.message).toContain('registered successfully');
-    }
+    expect(res.statusCode).toBe(201);
+    expect(res.body).toHaveProperty('token');
   });
 
-  it('should login an existing user', async () => {
+  test('should login an existing user', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({
-        email: 'ade1@gmail.com',
-        password: 'ade'
-      });
+      .send({ email: 'test@example.com', password: 'password' });
+
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('token');
   });
 
-  it('should not login with incorrect credentials', async () => {
+  test('should not login with incorrect password', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({
-        email: 'ade1@gmail.com',
-        password: 'wrongpassword'
-      });
-    expect(res.statusCode).toBe(400);
-    expect(res.body.error).toContain('Invalid credentials');
+      .send({ email: 'test@example.com', password: 'wrongpassword' });
+
+    expect(res.statusCode).toBe(401);
   });
 });

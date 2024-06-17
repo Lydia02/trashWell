@@ -1,59 +1,56 @@
 const request = require('supertest');
-const app = require('../app'); // Make sure the path is correct
+const app = require('../app');
+const { token } = require('./setup');
 
 describe('Recycling Activities', () => {
-  let token;
-  let recyclingId;
-
-  beforeAll(async () => {
-    const loginResponse = await request(app)
-      .post('/api/auth/login')
-      .send({
-        email: 'ade1@gmail.com',
-        password: 'ade'
-      });
-    token = loginResponse.body.token;
-  });
-
-  it('should create a recycling activity', async () => {
+  test('should create a recycling activity', async () => {
     const res = await request(app)
       .post('/api/recycling')
       .set('Authorization', `Bearer ${token}`)
-      .send({
-        date: '2024-07-01',
-        material: 'Plastic',
-        amount: 5.5,
-        userId: 5 // Adjust as per your authentication system
-      });
+      .send({ date: '2023-12-01', material: 'Plastic', amount: 5, userId: 1 });
+
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty('id');
-    recyclingId = res.body.id; // Save the recycling ID for other tests
   });
 
-  it('should retrieve recycling activities', async () => {
+  test('should retrieve recycling activities', async () => {
     const res = await request(app)
       .get('/api/recycling')
       .set('Authorization', `Bearer ${token}`);
+
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBeTruthy();
   });
 
-  it('should update a recycling activity', async () => {
+  test('should update a recycling activity', async () => {
+    const newActivity = await request(app)
+      .post('/api/recycling')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ date: '2023-12-01', material: 'Plastic', amount: 5, userId: 1 });
+
+    const recyclingId = newActivity.body.id;
+
     const res = await request(app)
       .put(`/api/recycling/${recyclingId}`)
       .set('Authorization', `Bearer ${token}`)
-      .send({
-        material: 'Glass',
-        amount: 3.5
-      });
+      .send({ amount: 3.5 });
+
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toContain('updated');
   });
 
-  it('should delete a recycling activity', async () => {
+  test('should delete a recycling activity', async () => {
+    const newActivity = await request(app)
+      .post('/api/recycling')
+      .set('Authorization', `Bearer ${token}`)
+      .send({ date: '2023-12-01', material: 'Plastic', amount: 5, userId: 1 });
+
+    const recyclingId = newActivity.body.id;
+
     const res = await request(app)
       .delete(`/api/recycling/${recyclingId}`)
       .set('Authorization', `Bearer ${token}`);
+
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toContain('deleted');
   });
