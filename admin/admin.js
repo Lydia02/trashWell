@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('hhttps://trashwell-1.onrender.com/api/admin/users', {
+        fetch('https://trashwell-1.onrender.com/api/admin/users', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
