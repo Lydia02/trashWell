@@ -13,11 +13,11 @@ jobs:
       postgres:
         image: postgres:12
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test_db
+          POSTGRES_USER: wmsy
+          POSTGRES_PASSWORD: group15
+          POSTGRES_DB: wmsy
         options: >-
-          --health-cmd "pg_isready -U postgres -d test_db"
+          --health-cmd "pg_isready -U wmsy -d wmsy"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -26,37 +26,45 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Updated to latest version
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm install
         working-directory: backend
 
       - name: Wait for PostgreSQL
         run: |
-          until pg_isready --host=localhost --port=5432 -U postgres; do 
+          until pg_isready --host=localhost --port=5432 -U wmsy -d wmsy; do 
             echo "Waiting for PostgreSQL to be ready...";
             sleep 1; 
           done
 
       - name: Verify PostgreSQL connection
         run: |
-          PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -c '\l'
+          PGPASSWORD=group15 psql -h localhost -U wmsy -d wmsy -c '\l'
+
+      - name: Run database migrations
+        run: npm run migrate
+        working-directory: backend
+
+      - name: Seed database
+        run: npm run seed
+        working-directory: backend
 
       - name: Set up environment variables
         run: |
           echo DB_HOST=localhost >> $GITHUB_ENV
-          echo DB_USER=postgres >> $GITHUB_ENV
-          echo DB_PASS=postgres >> $GITHUB_ENV
-          echo DB_NAME=test_db >> $GITHUB_ENV
+          echo DB_USER=wmsy >> $GITHUB_ENV
+          echo DB_PASS=group15 >> $GITHUB_ENV
+          echo DB_NAME=wmsy >> $GITHUB_ENV
           echo NODE_ENV=test >> $GITHUB_ENV
 
-      - name: Run tests
+      - name: Run backend tests
         run: npm test
         working-directory: backend
 
