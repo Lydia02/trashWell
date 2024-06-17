@@ -17,7 +17,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: ${{ secrets.DB_NAME }}
         options: >-
-          --health-cmd "pg_isready"
+          --health-cmd "pg_isready -U ${{ secrets.DB_USER }} -d ${{ secrets.DB_NAME }}"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -39,14 +39,14 @@ jobs:
 
       - name: Wait for PostgreSQL
         run: |
-          until pg_isready --host=localhost --port=5432; do 
-            echo waiting for postgres; 
+          until pg_isready --host=localhost --port=5432 -U ${{ secrets.DB_USER }}; do 
+            echo "Waiting for PostgreSQL to be ready...";
             sleep 1; 
           done
 
       - name: Verify PostgreSQL connection
         run: |
-          psql -h localhost -U ${{ secrets.DB_USER }} -d ${{ secrets.DB_NAME }} -c '\l'
+          PGPASSWORD=${{ secrets.DB_PASS }} psql -h localhost -U ${{ secrets.DB_USER }} -d ${{ secrets.DB_NAME }} -c '\l'
 
       - name: Set up environment variables
         run: |
@@ -60,11 +60,11 @@ jobs:
         run: npm test
         working-directory: backend
 
-      - name: Build frontend
+      - name: Install frontend dependencies
         run: npm install
         working-directory: frontend
 
-      - name: Deploy to Render
+      - name: Deploy to Render (Backend)
         if: github.ref == 'refs/heads/main'
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
@@ -75,6 +75,11 @@ jobs:
             -d '{"serviceId": "srv-cpnvchmehbks738egqf0"}' \
             https://api.render.com/v1/services/srv-cpnvchmehbks738egqf0/deploys
 
+      - name: Deploy to Render (Frontend)
+        if: github.ref == 'refs/heads/main'
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+        run: |
           curl -X POST \
             -H 'Authorization: Bearer $RENDER_API_KEY' \
             -H 'Content-Type: application/json' \
