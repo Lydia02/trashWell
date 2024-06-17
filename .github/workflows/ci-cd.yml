@@ -47,6 +47,7 @@ jobs:
       - name: Verify PostgreSQL connection
         run: |
           PGPASSWORD=group15 psql -h localhost -U wmsy -d wmsy -c '\l'
+<<<<<<< HEAD
 
       - name: Run database migrations
         run: npm run migrate
@@ -55,6 +56,8 @@ jobs:
       - name: Seed database
         run: npm run seed
         working-directory: backend
+=======
+>>>>>>> dbf4397d7cbe2b725e07eb1a718122643f0793d8
 
       - name: Set up environment variables
         run: |
