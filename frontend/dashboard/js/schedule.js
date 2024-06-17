@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const backendUrl = "https://trashwell-1.onrender.com";
+
     const profileIcon = document.getElementById('profile-icon');
     const sidebar = document.getElementById('sidebar');
     const closeSidebar = document.getElementById('close-sidebar');
@@ -36,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/auth/details', {
+        fetch(`${backendUrl}/api/auth/details`, {
             method: 'GET',
-            hheaders: {
-                'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())
@@ -75,10 +78,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/schedules', {
+        fetch(`${backendUrl}/api/schedules`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())
@@ -146,10 +150,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/schedules', {
+        fetch(`${backendUrl}/api/schedules`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
@@ -184,10 +189,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`https://trashwell-1.onrender.com/api/schedules/${currentEditId}`, {
+        fetch(`${backendUrl}/api/schedules/${currentEditId}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
@@ -218,10 +224,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`https://trashwell-1.onrender.com/api/schedules/${id}`, {
+        fetch(`${backendUrl}/api/schedules/${id}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())

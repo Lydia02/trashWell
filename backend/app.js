@@ -9,7 +9,7 @@ const adminRoutes = require('./routes/admin');
 
 const app = express();
 
-const allowedOrigins = ['https://trashwell-1.onrender.com'];
+const allowedOrigins = ['https://trashwell.onrender.com'];
 
 app.use(cors({
     origin: function (origin, callback) {

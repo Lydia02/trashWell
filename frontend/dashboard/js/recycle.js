@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    const backendUrl = "https://trashwell-1.onrender.com";
+
+    // Sidebar setup
     const profileIcon = document.getElementById('profile-icon');
     const sidebar = document.getElementById('sidebar');
     const closeSidebar = document.getElementById('close-sidebar');
@@ -36,10 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/auth/details', {
+        fetch(`${backendUrl}/api/auth/details`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())
@@ -75,10 +79,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/recycling', {
+        fetch(`${backendUrl}/api/recycling`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())
@@ -150,10 +155,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch('https://trashwell-1.onrender.com/api/recycling', {
+        fetch(`${backendUrl}/api/recycling`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
@@ -189,10 +195,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`https://trashwell-1.onrender.com/api/recycling/${currentEditId}`, {
+        fetch(`${backendUrl}/api/recycling/${currentEditId}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(data)
         })
@@ -223,10 +230,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch(`https://trashwell-1.onrender.com/api/recycling/${id}`, {
+        fetch(`${backendUrl}/api/recycling/${id}`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
         })
         .then(response => response.json())
