@@ -1,27 +1,40 @@
 const request = require('supertest');
 const { User } = require('../models');
-const sequelize = require('../config/database');
+const { Sequelize } = require('sequelize');
+const config = require('../config/config.json');
+
+// Assuming your environment is set to 'test' in your testing script or environment variable
+const env = process.env.NODE_ENV || 'test';
+const sequelize = new Sequelize(config[env]);
 
 let token;
 
 beforeAll(async () => {
-  await sequelize.sync({ force: true });
+  try {
+    await sequelize.authenticate(); // Check database connection
+    console.log('Connection has been established successfully.');
 
-  // Create test user and obtain token
-  const user = await User.create({
-    firstname: 'Test',
-    lastname: 'User',
-    address: '123 Test St',
-    password: 'password', // Ensure this matches your hashing logic
-    email: 'test@example.com',
-    role: 'user'
-  });
+    await sequelize.sync({ force: true }); // Sync database schema
 
-  const res = await request(require('../app'))
-    .post('/api/auth/login')
-    .send({ email: 'test@example.com', password: 'password' });
+    // Create test user and obtain token
+    const user = await User.create({
+      firstname: 'Test',
+      lastname: 'User',
+      address: '123 Test St',
+      password: 'password', // Make sure this matches your hashing logic
+      email: 'test@example.com',
+      role: 'user'
+    });
 
-  token = res.body.token;
+    const res = await request(require('../app')) // Assuming your app is correctly exported from app.js
+      .post('/api/auth/login')
+      .send({ email: 'test@example.com', password: 'password' });
+
+    token = res.body.token;
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+    process.exit(1); // Exit process on database connection error
+  }
 });
 
 module.exports = { token };
