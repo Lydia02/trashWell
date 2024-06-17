@@ -17,7 +17,7 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.DB_PASS }}
           POSTGRES_DB: ${{ secrets.DB_NAME }}
         options: >-
-          --health-cmd pg_isready
+          --health-cmd "pg_isready"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -44,8 +44,9 @@ jobs:
             sleep 1; 
           done
 
-      - name: Check PostgreSQL logs
-        run: docker logs postgres
+      - name: Verify PostgreSQL connection
+        run: |
+          psql -h localhost -U ${{ secrets.DB_USER }} -d ${{ secrets.DB_NAME }} -c '\l'
 
       - name: Set up environment variables
         run: |
