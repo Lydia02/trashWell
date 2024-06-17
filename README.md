@@ -77,7 +77,7 @@ When you clone the repository, you'll find the following directories and files:
 To run the application, navigate to the project directory in your terminal and start the server:
 
 ```bash
-npm start
+npm dev
 ```
 
 This command will start the server and the application will be accessible at `http://localhost:3000`.

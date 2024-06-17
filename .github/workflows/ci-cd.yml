@@ -38,7 +38,14 @@ jobs:
         working-directory: backend
 
       - name: Wait for PostgreSQL
-        run: until pg_isready --host=localhost --port=5432; do echo waiting for postgres; sleep 1; done
+        run: |
+          until pg_isready --host=localhost --port=5432; do 
+            echo waiting for postgres; 
+            sleep 1; 
+          done
+
+      - name: Check PostgreSQL logs
+        run: docker logs postgres
 
       - name: Set up environment variables
         run: |
@@ -64,11 +71,11 @@ jobs:
           curl -X POST \
             -H 'Authorization: Bearer $RENDER_API_KEY' \
             -H 'Content-Type: application/json' \
-            -d '{"serviceId": "your-backend-service-id"}' \
-            https://api.render.com/v1/services/your-backend-service-id/deploys
+            -d '{"serviceId": "srv-cpnvchmehbks738egqf0"}' \
+            https://api.render.com/v1/services/srv-cpnvchmehbks738egqf0/deploys
 
           curl -X POST \
             -H 'Authorization: Bearer $RENDER_API_KEY' \
             -H 'Content-Type: application/json' \
-            -d '{"serviceId": "your-frontend-service-id"}' \
-            https://api.render.com/v1/services/your-frontend-service-id/deploys
+            -d '{"serviceId": "srv-cpo000lds78s73b7o6hg"}' \
+            https://api.render.com/v1/services/srv-cpo000lds78s73b7o6hg/deploys
