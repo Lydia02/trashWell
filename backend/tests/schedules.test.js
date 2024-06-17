@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
-const { token } = require('./setup');
+const { token } = require('./setup'); // Ensure correct path to setup.js
 
 describe('Waste Collection Scheduling', () => {
   test('should create a waste collection schedule', async () => {
@@ -23,15 +23,9 @@ describe('Waste Collection Scheduling', () => {
   });
 
   test('should update a waste collection schedule', async () => {
-    const newSchedule = await request(app)
-      .post('/api/schedules')
-      .set('Authorization', `Bearer ${token}`)
-      .send({ date: '2023-12-01', time: '10:00', userId: 1 });
-
-    const scheduleId = newSchedule.body.id;
-
+    // Replace {scheduleId} with an actual schedule ID from your database
     const res = await request(app)
-      .put(`/api/schedules/${scheduleId}`)
+      .put(`/api/schedules/{scheduleId}`)
       .set('Authorization', `Bearer ${token}`)
       .send({ time: '15:00' });
 
@@ -40,15 +34,9 @@ describe('Waste Collection Scheduling', () => {
   });
 
   test('should delete a waste collection schedule', async () => {
-    const newSchedule = await request(app)
-      .post('/api/schedules')
-      .set('Authorization', `Bearer ${token}`)
-      .send({ date: '2023-12-01', time: '10:00', userId: 1 });
-
-    const scheduleId = newSchedule.body.id;
-
+    // Replace {scheduleId} with an actual schedule ID from your database
     const res = await request(app)
-      .delete(`/api/schedules/${scheduleId}`)
+      .delete(`/api/schedules/{scheduleId}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
