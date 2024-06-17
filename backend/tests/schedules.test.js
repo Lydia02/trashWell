@@ -10,8 +10,8 @@ describe('Waste Collection Scheduling', () => {
     const loginResponse = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'Lydia@example.com',
-        password: 'secret'
+        email: 'ade1@gmail.com',
+        password: 'ade'
       });
     token = loginResponse.body.token;
   });
@@ -23,7 +23,7 @@ describe('Waste Collection Scheduling', () => {
       .send({
         date: '2024-07-01',
         time: '14:00',
-        userId: 1  // Adjust as per your authentication system
+        userId: 5  // Adjust as per your authentication system
       });
     expect(res.statusCode).toBe(201);
     expect(res.body).toHaveProperty('id');
