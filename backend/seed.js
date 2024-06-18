@@ -1,5 +1,5 @@
-const { User, RecyclingEntry, WasteCollection } = require('./models'); // Ensure models are correctly imported
-const sequelize = require('./config/database'); // Ensure you import the sequelize instance
+const User = require('./models/user');
+const sequelize = require('./config/database');
 
 async function seedDatabase() {
   try {
@@ -21,39 +21,11 @@ async function seedDatabase() {
       }
     }
 
-    // Create RecyclingEntries
-    const recyclingEntries = [
-      { date: new Date(), material: 'Plastic', amount: 2.5, userId: 1 },
-      { date: new Date(), material: 'Glass', amount: 1.5, userId: 2 }
-    ];
-
-    for (const entry of recyclingEntries) {
-      try {
-        await RecyclingEntry.create(entry);
-        console.log(`Recycling entry for ${entry.material} created`);
-      } catch (error) {
-        console.error(`Error creating recycling entry for ${entry.material}:`, error);
-      }
-    }
-
-    // Create WasteCollections
-    const wasteCollections = [
-      { date: new Date(), time: '10:00', status: 'scheduled', userId: 1 },
-      { date: new Date(), time: '14:00', status: 'scheduled', userId: 2 }
-    ];
-
-    for (const collection of wasteCollections) {
-      try {
-        await WasteCollection.create(collection);
-        console.log(`Waste collection on ${collection.date} at ${collection.time} created`);
-      } catch (error) {
-        console.error(`Error creating waste collection on ${collection.date}:`, error);
-      }
-    }
-
-    console.log('Database seeded successfully');
+    console.log('Database seeding completed');
   } catch (error) {
     console.error('Error seeding database:', error);
+  } finally {
+    sequelize.close();
   }
 }
 
