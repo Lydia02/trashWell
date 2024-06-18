@@ -65,19 +65,10 @@ jobs:
           DB_PASS: ${{ env.DB_PASS }}
           DB_NAME: ${{ env.DB_NAME }}
 
-      - name: Seed database
-        run: npm run seed
-        working-directory: backend
-        env:
-          DB_HOST: ${{ env.DB_HOST }}
-          DB_USER: ${{ env.DB_USER }}
-          DB_PASS: ${{ env.DB_PASS }}
-          DB_NAME: ${{ env.DB_NAME }}
+  
 
     
-      - name: Install frontend dependencies
-        run: npm install
-        working-directory: frontend
+  
 
       - name: Deploy to Render (Backend)
         if: github.ref == 'refs/heads/main'
