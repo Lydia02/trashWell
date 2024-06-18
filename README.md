@@ -1,5 +1,10 @@
 # Smart Waste Management System
+
 # TrashWell
+
+
+# Link to the slide
+[Click here](https://docs.google.com/presentation/d/1eO9hAtvZ3vDhsLh9FTfifRkS3Ty6mEAEYNdlE4bdtaY/edit#slide=id.g2e6a755ee06_1_41)
 
 ## Table of Contents
 - [Overview](#overview)
