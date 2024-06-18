@@ -1,19 +1,26 @@
 const request = require('supertest');
-const app = require('../app'); // Make sure the path is correct
+const app = require('../app'); // Adjust the path as needed
+const { sequelize } = require('../models'); // Adjust the path as needed
 
 describe('User Authentication', () => {
+  beforeAll(async () => {
+    await sequelize.sync({ force: true }); // Ensure the database is clean before tests
+  });
+
   it('should signup a new user', async () => {
     const res = await request(app)
       .post('/api/auth/register')
       .send({
-        firstname: 'ola',
-        lastname: 'dan',
+        firstname: 'Ola',
+        lastname: 'Dan',
+        address: '123 Street',
         email: 'ola.dan@example.com',
-        password: 'oladan',
-        address: 'ikeja'
+        password: 'oladan'
       });
+
+    console.log('Signup Response:', res.body); // Add this log
     expect(res.statusCode).toBe(201);
-    expect(res.body.message).toContain('registered successfully');
+    expect(res.body).toHaveProperty('user');
   });
 
   it('should login an existing user', async () => {
@@ -23,6 +30,8 @@ describe('User Authentication', () => {
         email: 'ola.dan@example.com',
         password: 'oladan'
       });
+
+    console.log('Login Response:', res.body); // Add this log
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('token');
   });
@@ -32,20 +41,24 @@ describe('User Authentication', () => {
       .post('/api/auth/login')
       .send({
         email: 'ola.dan@example.com',
-        password: 'wrongpassword1'
+        password: 'wrongpassword'
       });
+
+    console.log('Invalid Login Response:', res.body); // Add this log
     expect(res.statusCode).toBe(400);
-    expect(res.body.error).toContain('Invalid credentials');
+    expect(res.body).toHaveProperty('error', 'Invalid credentials!');
   });
-  it('should login an existing user', async () => {
+
+  it('should login an existing user again', async () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
         email: 'ola.dan@example.com',
         password: 'oladan'
       });
+
+    console.log('Login Again Response:', res.body); // Add this log
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('token');
   });
-  
 });
