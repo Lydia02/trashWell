@@ -33,6 +33,14 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Set up environment variables
+        run: |
+          echo DB_HOST=localhost >> $GITHUB_ENV
+          echo DB_USER=wmsy >> $GITHUB_ENV
+          echo DB_PASS=group15 >> $GITHUB_ENV
+          echo DB_NAME=wmsy >> $GITHUB_ENV
+          echo NODE_ENV=test >> $GITHUB_ENV
+
       - name: Install backend dependencies
         run: npm install
         working-directory: backend
@@ -51,22 +59,30 @@ jobs:
       - name: Run database migrations
         run: npm run migrate
         working-directory: backend
+        env:
+          DB_HOST: ${{ env.DB_HOST }}
+          DB_USER: ${{ env.DB_USER }}
+          DB_PASS: ${{ env.DB_PASS }}
+          DB_NAME: ${{ env.DB_NAME }}
 
       - name: Seed database
         run: npm run seed
         working-directory: backend
-
-      - name: Set up environment variables
-        run: |
-          echo DB_HOST=localhost >> $GITHUB_ENV
-          echo DB_USER=wmsy >> $GITHUB_ENV
-          echo DB_PASS=group15 >> $GITHUB_ENV
-          echo DB_NAME=wmsy >> $GITHUB_ENV
-          echo NODE_ENV=test >> $GITHUB_ENV
+        env:
+          DB_HOST: ${{ env.DB_HOST }}
+          DB_USER: ${{ env.DB_USER }}
+          DB_PASS: ${{ env.DB_PASS }}
+          DB_NAME: ${{ env.DB_NAME }}
 
       - name: Run backend tests
         run: npm test
         working-directory: backend
+        env:
+          DB_HOST: ${{ env.DB_HOST }}
+          DB_USER: ${{ env.DB_USER }}
+          DB_PASS: ${{ env.DB_PASS }}
+          DB_NAME: ${{ env.DB_NAME }}
+          NODE_ENV: ${{ env.NODE_ENV }}
 
       - name: Install frontend dependencies
         run: npm install
