@@ -31,7 +31,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Set up environment variables
         run: |
@@ -64,11 +64,6 @@ jobs:
           DB_USER: ${{ env.DB_USER }}
           DB_PASS: ${{ env.DB_PASS }}
           DB_NAME: ${{ env.DB_NAME }}
-
-  
-
-    
-  
 
       - name: Deploy to Render (Backend)
         if: github.ref == 'refs/heads/main'

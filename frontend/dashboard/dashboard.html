@@ -1,422 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TrashWell Website</title>
 
     <!-- Swiper JS CSS-->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
 
     <!-- Scroll Reveal -->
-    <link rel="stylesheet" href="css/scrollreveal.min.js">
+    <link rel="stylesheet" href="css/scrollreveal.min.js" />
 
     <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-        
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-        <!-- <link rel="stylesheet" href="css/recycle.css"> -->
-
-</head>
-<body>
-<!-- Header -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/recycle.css"> -->
+  </head>
+  <body>
+    <!-- Header -->
     <header class="header">
-            <nav class="nav container flex">
-                    <a href="#" class="logo-content flex">
-                        <i class='bx bx-trash logo-icon'></i>
-                        <span class="logo-text">TrashWell</span>
-                    </a>
+      <nav class="nav container flex">
+        <a href="#" class="logo-content flex">
+          <i class="bx bx-trash logo-icon"></i>
+          <span class="logo-text">TrashWell</span>
+        </a>
 
-                    <div class="menu-content">
-                            <ul class="menu-list flex">
-                                    <li><a href="#home" class="nav-link active-navlink">Home</a></li>
-                                    <li><a href="#about" class="nav-link">About Us</a></li>
-                                    <li><a href="#menu" class="nav-link">Schedule</a></li>
-                                    <li><a href="#recycling" class="nav-link">Recycle</a></li>
-                                    <li><a href="../index.html" class="nav-link">Logout</a></li>
-                                    <li><a href="#" id="profile-icon" class="nav-link">Profile</a></li>
-                                    
-                            </ul>
+        <div class="menu-content">
+          <ul class="menu-list flex">
+            <li><a href="#home" class="nav-link active-navlink">Home</a></li>
+            <li><a href="#about" class="nav-link">About Us</a></li>
+            <li><a href="#menu" class="nav-link">Schedule</a></li>
+            <li><a href="#recycling" class="nav-link">Recycle</a></li>
+            <li><a href="#review" class="nav-link">Reviews</a></li>
+            <li><a href="../index.html" class="nav-link">Logout</a></li>
+            <li><a href="#" id="profile-icon" class="nav-link">Profile</a></li>
+          </ul>
 
-                            <div class="media-icons flex">
-                                    <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a>
-                                    <a href="https://twitter.com/i/flow/login"><i class='bx bxl-twitter' ></i></a>
-                                    <a href="https://www.instagram.com/accounts/login"><i class='bx bxl-instagram-alt' ></i></a>
-                                    <a href="https://github.com/login"><i class='bx bxl-github'></i></a>
-                                    <a href="https://www.youtube.com/login"><i class='bx bxl-youtube'></i></a>
-                            </div>
+          <div class="media-icons flex">
+            <a href="https://www.facebook.com"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://twitter.com/i/flow/login"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/accounts/login"
+              ><i class="bx bxl-instagram-alt"></i
+            ></a>
+            <a href="https://github.com/login"><i class="bx bxl-github"></i></a>
+            <a href="https://www.youtube.com/login"
+              ><i class="bx bxl-youtube"></i
+            ></a>
+          </div>
 
-                            <i class='bx bx-x navClose-btn'></i>
-                        </div>
-                        
-                        <div class="contact-content flex">
-                            <i class='bx bx-phone phone-icon' ></i>
-                            <span class="phone-number">+250-123-456-789</span>
-                        </div>
+          <i class="bx bx-x navClose-btn"></i>
+        </div>
 
-                        <i class='bx bx-menu navOpen-btn'></i>
-                </nav>
-        
+        <div class="contact-content flex">
+          <i class="bx bx-phone phone-icon"></i>
+          <span class="phone-number">+250-123-456-789</span>
+        </div>
+
+        <i class="bx bx-menu navOpen-btn"></i>
+      </nav>
     </header>
 
-<!-- Home Section -->
+    <!-- Home Section -->
     <main>
-        <section class="home" id="home">
-                <div class="home-content">
-                        <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                                <img src="images/homeImg3.jpg" alt="" class="home-img">
+      <section class="home" id="home">
+        <div class="home-content">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/homeImg3.jpg" alt="" class="home-img" />
 
-                                                <div class="home-details">
-                                                        <div class="home-text">
-                                                                <h4 class="homeSubtitle">Welcome to Your Dashboard.</h4>
-                                                                <h2 class="homeTitle">Smart Waste Solutions for a <br> Sustainable Future</h2>
-                                                        </div>
+                <div class="home-details">
+                  <div class="home-text">
+                    <h4 class="homeSubtitle">Welcome to Your Dashboard.</h4>
+                    <h2 class="homeTitle">
+                      Smart Waste Solutions for a <br />
+                      Sustainable Future
+                    </h2>
+                  </div>
 
-                                                
-                                                        <a href="#about" class="button">About Us</a>
-
-                                                </div>
-                                        </div>
-
-                                        <div class="swiper-slide">
-                                                <img src="images/aboutImg.jpeg" alt="" class="home-img">
-
-                                                <div class="home-details">
-                                                        <div class="home-text">
-                                                                <h4 class="homeSubtitle">Eco-Friendly Waste Management for a Better Planet</h4>
-                                                                <h2 class="homeTitle">Waste Less <br>Live More </h2>
-                                                        </div>
-
-                                                        <a href="#about" class="button">About Us</a>
-
-                                                </div>
-                                        </div>
-
-                                        <div class="swiper-slide">
-                                                <img src="images/homeImg1.webp" alt="" class="home-img">
-
-                                                <div class="home-details">
-                                                        <div class="home-text">
-                                                                <h4 class="homeSubtitle">Transforming Waste.</h4>
-                                                                <h2 class="homeTitle">Clean Earth, <br>Green Earth</h2>
-                                                        </div>
-
-                                                        <a href="#about" class="button">About Us</a>
-                                                </div>
-                                        </div>
-                                </div>
-
-                                <div class="swiper-button-next swiper-navBtn"></div>
-                                <div class="swiper-button-prev swiper-navBtn"></div>
-                                <div class="swiper-pagination"></div>
-                        </div>
+                  <a href="#about" class="button">About Us</a>
                 </div>
-        </section>
+              </div>
 
-    
-<!-- About Section -->
-        <section class="section about" id="about">
-                <div class="about-content container">
-                        <div class="about-imageContent">
-                                <img src="images/homeImg2.jpeg" alt="" class="about-img">
+              <div class="swiper-slide">
+                <img src="images/aboutImg.jpeg" alt="" class="home-img" />
 
-                                <div class="aboutImg-textBox">
-                                        <i class='bx bx-heart heart-icon flex'></i>
-                                        <p class="content-description">Your Waste, Our Responsibility.</p>
-                                </div>
-                        </div>
+                <div class="home-details">
+                  <div class="home-text">
+                    <h4 class="homeSubtitle">
+                      Eco-Friendly Waste Management for a Better Planet
+                    </h4>
+                    <h2 class="homeTitle">Waste Less <br />Live More</h2>
+                  </div>
 
-                        <div class="about-details">
-                                <div class="about-text">
-                                        <h4 class="content-subtitle"><i>About Waste Management</i></h4>
-                                        <h2 class="content-title">TrashWell is an innovative web application that streamlines waste management processes for households, waste collection services, and administrators.<br> Proper waste management is crucial for maintaining a clean and sustainable environment</h2>
-                                        <p class="content-description"><b>The objective of this project is to develop a smart waste management system that enhances waste collection efficiency, 
-                                                promotes recycling efforts, and provides insights into environmental impact metrics.</b></p>
-
-                                        <ul class="about-lists flex">
-                                                <li class="about-list">Waste collection schedule</li>
-                                                <li class="about-list dot">.</li>
-                                                <li class="about-list">Waste Recyling Tracker</li>
-                                                <li class="about-list dot">.</li>
-                                                <li class="about-list">and Lot more</li>
-                                        </ul>
-                                </div>
-
-                                <div class="about-buttons flex">
-                                        <button class="button">About Us</button>
-                                        <a href="#" class="about-link flex">
-                                                <span class="link-text">see more</span>
-                                                <i class='bx bx-right-arrow-alt about-arrowIcon'></i>
-                                        </a>
-                                </div>
-                        </div>
-
+                  <a href="#about" class="button">About Us</a>
                 </div>
-        </section>
+              </div>
 
-    
-<!-- Menu Section -->
-<section class="section menu" id="menu">
-    <div class="menu-container container">
-        <div class="menu-text">
+              <div class="swiper-slide">
+                <img src="images/homeImg1.webp" alt="" class="home-img" />
+
+                <div class="home-details">
+                  <div class="home-text">
+                    <h4 class="homeSubtitle">Transforming Waste.</h4>
+                    <h2 class="homeTitle">Clean Earth, <br />Green Earth</h2>
+                  </div>
+
+                  <a href="#about" class="button">About Us</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section about" id="about">
+        <div class="about-content container">
+          <div class="about-imageContent">
+            <img src="images/ss.jpg" alt="" class="about-img" />
+
+            <div class="aboutImg-textBox">
+              <i class="bx bx-heart heart-icon flex"></i>
+              <p class="content-description">Your Waste, Our Responsibility.</p>
+            </div>
+          </div>
+          <div class="about-details">
+            <div class="about-text">
+              <h1 class="content-subtitle"><b>About Waste Management</b></h1>
+              <h4 class="content-title">
+                TrashWell is an innovative web application that streamlines
+                waste management processes for households, waste collection
+                services, and administrators.<br />
+                Proper waste management is crucial for maintaining a clean and
+                sustainable environment
+              </h4>
+              <p class="content-description">
+                The objective of this project is to develop a smart waste
+                management system that enhances waste collection efficiency,
+                promotes recycling efforts, and provides insights into
+                environmental impact metrics.
+              </p>
+
+              <ul class="about-lists flex">
+                <li class="about-list">Waste collection schedule</li>
+                <li class="about-list dot">.</li>
+                <li class="about-list">Waste Recyling Tracker</li>
+                <li class="about-list dot">.</li>
+                <li class="about-list">and Lot more</li>
+              </ul>
+            </div>
+
+            <div class="about-buttons flex">
+              <button class="button">About Us</button>
+              <a href="#" class="about-link flex">
+                <span class="link-text">see more</span>
+                <i class="bx bx-right-arrow-alt about-arrowIcon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section class="section menu" id="menu">
+        <div class="menu-container container">
+          <div class="menu-text">
             <h4 class="section-subtitle"><i>Schedule Your Collection</i></h4>
             <h2 class="section-title">Waste Collection</h2>
             <p class="section-description">
-                Efficiently managing your waste collection schedule ensures timely disposal, which is crucial for maintaining a clean and healthy living environment. Mark your collection days on a calendar or set reminders to avoid missing pickups. Separate waste properly by using labeled bins for recyclables, organic waste, and general waste. Prepare waste by securely bagging it to prevent spillage and minimize odors, and flatten or crush items to save space.
+              Efficiently managing your waste collection schedule ensures timely
+              disposal, which is crucial for maintaining a clean and healthy
+              living environment. Mark your collection days on a calendar or set
+              reminders to avoid missing pickups. Separate waste properly by
+              using labeled bins for recyclables, organic waste, and general
+              waste. Prepare waste by securely bagging it to prevent spillage
+              and minimize odors, and flatten or crush items to save space.
             </p>
-        </div>
+          </div>
 
-        <div class="menu-content">
+          <div class="menu-content">
             <div class="menu-items">
-                <div class="menu-item flex">
-                    <form id="scheduleForm">
-                        <div class="menuItem-details">
-                            <h4 class="menuItem-topic">Schedule a New Collection</h4>
-                            <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" required>
-                            <label for="time">Time:</label>
-                            <input type="time" id="time" name="time" required>
-                            <button type="submit">Schedule</button>
-                        </div>
-                    </form>
+              <div class="menu-item flex">
+                <form id="scheduleForm">
+                  <div class="menuItem-details">
+                    <h4 class="menuItem-topic">Schedule a New Collection</h4>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required />
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required />
+                    <button type="submit">Schedule</button>
+                  </div>
+                </form>
+              </div>
+              <div class="menu-item flex">
+                <div class="menuItem-details">
+                  <h4 class="menuItem-topic">Your Scheduled Collections</h4>
+                  <table id="collectionsTable">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="collections"></tbody>
+                  </table>
                 </div>
-                <div class="menu-item flex">
-                    <div class="menuItem-details">
-                        <h4 class="menuItem-topic">Your Scheduled Collections</h4>
-                        <table id="collectionsTable">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="collections"></tbody>
-                        </table>
-                    </div>
-                </div>
+              </div>
             </div>
 
             <div class="time-table">
-                <span class="time-topic">Collection Days</span>
-                <ul class="time-lists">
-                    <li class="time-list flex">
-                        <span class="open-day">Sunday</span>
-                        <span class="open-time">Closed</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Monday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Tuesday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Wednesday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Thursday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Friday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Saturday</span>
-                        <span class="open-time">9.00am - 2.00pm</span>
-                    </li>
-                </ul>
+              <span class="time-topic">Collection Days</span>
+              <ul class="time-lists">
+                <li class="time-list flex">
+                  <span class="open-day">Sunday</span>
+                  <span class="open-time">Closed</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Monday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Tuesday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Wednesday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Thursday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Friday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Saturday</span>
+                  <span class="open-time">9.00am - 2.00pm</span>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-
-    
-<!-- Recycle Section -->
-<section class="section menu recycling" id="recycling">
-    <div class="menu-container container">
-        <div class="menu-text">
-            <h4 class="section-subtitle"><i>Log Your Recycling Activities</i></h4>
+      <!-- Recycle Section -->
+      <section class="section menu recycling" id="recycling">
+        <div class="menu-container container">
+          <div class="menu-text">
+            <h4 class="section-subtitle">
+              <i>Log Your Recycling Activities</i>
+            </h4>
             <h2 class="section-title">Recycling</h2>
             <p class="section-description">
-                Tracking your recycling activities helps in understanding your contributions towards a sustainable environment. Log your recycling activities regularly to maintain a record of materials recycled and their amounts.
+              Tracking your recycling activities helps in understanding your
+              contributions towards a sustainable environment. Log your
+              recycling activities regularly to maintain a record of materials
+              recycled and their amounts.
             </p>
-        </div>
+          </div>
 
-        <div class="menu-content">
+          <div class="menu-content">
             <div class="menu-items">
-                <div class="menu-item flex">
-                    <form id="recyclingForm">
-                        <div class="menuItem-details">
-                            <h4 class="menuItem-topic">Log a New Recycling Activity</h4>
-                            <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" required>
-                            <label for="material">Material:</label>
-                            <input type="text" id="material" name="material" required>
-                            <label for="amount">Amount (in kg):</label>
-                            <input type="number" id="amount" name="amount" required>
-                            <button type="submit">Log Activity</button>
-                        </div>
-                    </form>
+              <div class="menu-item flex">
+                <form id="recyclingForm">
+                  <div class="menuItem-details">
+                    <h4 class="menuItem-topic">Log a New Recycling Activity</h4>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required />
+                    <label for="material">Material:</label>
+                    <input type="text" id="material" name="material" required />
+                    <label for="amount">Amount (in kg):</label>
+                    <input type="number" id="amount" name="amount" required />
+                    <button type="submit">Log Activity</button>
+                  </div>
+                </form>
+              </div>
+              <div class="menu-item flex">
+                <div class="menuItem-details">
+                  <h4 class="menuItem-topic">Your Recycling Activities</h4>
+                  <table id="entriesTable">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Material</th>
+                        <th>Amount (kg)</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="entries"></tbody>
+                  </table>
                 </div>
-                <div class="menu-item flex">
-                    <div class="menuItem-details">
-                        <h4 class="menuItem-topic">Your Recycling Activities</h4>
-                        <table id="entriesTable">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Material</th>
-                                    <th>Amount (kg)</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="entries"></tbody>
-                        </table>
-                    </div>
-                </div>
+              </div>
             </div>
 
             <div class="time-table">
-                <span class="time-topic">Collections Tracker Days</span>
-                <ul class="time-lists">
-                    <li class="time-list flex">
-                        <span class="open-day">Sunday</span>
-                        <span class="open-time">Closed</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Monday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Tuesday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Wednesday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Thursday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Friday</span>
-                        <span class="open-time">7.00am - 3.00pm</span>
-                    </li>
-                    <li class="time-list flex">
-                        <span class="open-day">Saturday</span>
-                        <span class="open-time">9.00am - 2.00pm</span>
-                    </li>
-                </ul>
+              <span class="time-topic">Collections Tracker Days</span>
+              <ul class="time-lists">
+                <li class="time-list flex">
+                  <span class="open-day">Sunday</span>
+                  <span class="open-time">Closed</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Monday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Tuesday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Wednesday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Thursday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Friday</span>
+                  <span class="open-time">7.00am - 3.00pm</span>
+                </li>
+                <li class="time-list flex">
+                  <span class="open-day">Saturday</span>
+                  <span class="open-time">9.00am - 2.00pm</span>
+                </li>
+              </ul>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-    
-    
+      <!-- Reviews Section -->
+      <section class="section review" id="review">
+        <div class="review-container container">
+          <div class="review-text">
+            <h4 class="section-subtitle"><i>Reviews</i></h4>
+            <h2 class="section-title">What Clients Say</h2>
+            <p class="section-description">
+              Here are some testimonials from clients who have experienced our
+              exceptional service. We take pride in our work and it shows in
+              their feedback.
+            </p>
+          </div>
 
-    
-<!-- Newsletter Section -->
-        <section class="section newsletter">
-            <div class="newletter-container container">
-                <a href="#" class="logo-content flex">
-                        <i class='bx bx-trash logo-icon'></i>
-                        <span class="logo-text">TrashWell.</span>
-                    </a>
+          <div class="testimonial swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="testi-content swiper-slide flex">
+                <img src="images/lydia.jpg" alt="" class="review-img" />
+                <p class="review-quote">
+                  TrashWell has transformed our waste management process. The
+                  scheduling and tracking features are incredibly efficient and
+                  user-friendly. Highly recommend!
+                </p>
+                <i class="bx bxs-quote-alt-left quote-icon"></i>
 
-                    <p class="section-description"> Discover How We Are Leading the Way in Sustainable Waste Management.</p>
-
-                    <div class="newsletter-inputBox">
-                            <input type="email" placeholder="email@example.com" class="newletter-input">
-                            <button class="button newsletter-button">Subscribe</button>
-                    </div>
-
-                    <div class="newsletter media-icons flex">
-                        <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a>
-                        <a href="https://twitter.com/i/flow/login"><i class='bx bxl-twitter' ></i></a>
-                        <a href="https://www.instagram.com/accounts/login"><i class='bx bxl-instagram-alt' ></i></a>
-                        <a href="https://github.com/login"><i class='bx bxl-github'></i></a>
-                        <a href="https://www.youtube.com/login"><i class='bx bxl-youtube'></i></a>
+                <div class="testi-personDetails flex">
+                  <span class="name">Lydia Ojoawo</span>
+                  <span class="job">Student</span>
                 </div>
+              </div>
+              <div class="testi-content swiper-slide flex">
+                <img src="images/profileImg1.jpg" alt="" class="review-img" />
+                <p class="review-quote">
+                  The recycling tracker is a game-changer. It not only helps us
+                  log our activities but also provides insightful metrics. Great
+                  job, TrashWell team!
+                </p>
+                <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+                <div class="testi-personDetails flex">
+                  <span class="name">Damilare Azeez</span>
+                  <span class="job">Student at ALU</span>
+                </div>
+              </div>
+              <div class="testi-content swiper-slide flex">
+                <img src="images/profileImg3.jpg" alt="" class="review-img" />
+                <p class="review-quote">
+                  The user dashboard is fantastic. It allows us to manage users
+                  and monitor system performance effortlessly. The reports
+                  generated are very detailed and helpful.
+                </p>
+                <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+                <div class="testi-personDetails flex">
+                  <span class="name">Nduka Oluchi</span>
+                  <span class="job">Student</span>
+                </div>
+              </div>
+              <div class="testi-content swiper-slide flex">
+                <img src="images/profileImg4.jpg" alt="" class="review-img" />
+                <p class="review-quote">
+                  TrashWell's waste collection scheduling feature has
+                  significantly improved our community's waste management
+                  efficiency. It's simple to use and very effective.
+                </p>
+                <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+                <div class="testi-personDetails flex">
+                  <span class="name">Marvelous Nelson</span>
+                  <span class="job">Student</span>
+                </div>
+              </div>
+              <div class="testi-content swiper-slide flex">
+                <img src="images/KhotGarang.jpg" alt="" class="review-img" />
+                <p class="review-quote">
+                  As an user, TrashWell provides all the tools I need to ensure
+                  our waste management operations run smoothly. The user
+                  management and performance monitoring features are top-notch.
+                </p>
+                <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+                <div class="testi-personDetails flex">
+                  <span class="name">Gabriel Khot</span>
+                  <span class="job">Student</span>
+                </div>
+              </div>
             </div>
-        </section>
-        
-    <!-- Sidebar -->
-<div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-        <h2>User Profile</h2>
-        <span id="close-sidebar">&times;</span>
-    </div>
-    <div class="sidebar-content">
-        <p id="userProfile">Loading...</p>
-        <button id="logout">Logout</button>
-    </div>
-</div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
 
-<div id="overlay"></div>
-<!-- Footer Section -->
-        <footer class="section footer">
-            <div class="footer-container container">
-                    <div class="footer-content">
-                        <a href="#" class="logo-content flex">
-                                <i class='bx bx-trash logo-icon'></i>
-                                <span class="logo-text">TrashWell.</span>
-                            </a>
+      <!-- Newsletter Section -->
+      <section class="section newsletter">
+        <div class="newletter-container container">
+          <a href="#" class="logo-content flex">
+            <i class="bx bx-trash logo-icon"></i>
+            <span class="logo-text">TrashWell.</span>
+          </a>
 
-                            <p class="content-description">Reuse and Repurpose: Before throwing items away, think about how they can be reused or repurposed.</p>
+          <p class="section-description">
+            Discover How We Are Leading the Way in Sustainable Waste Management.
+          </p>
 
-                            <div class="footer-location flex">
-                                <i class='bx bx-map map-icon'></i>
-                                
-                                <div class="location-text">
-                                       Afrian Leadership University, Kigali, Rwanda
-                                </div>
-                            </div>
-                    </div>
+          <div class="newsletter-inputBox">
+            <input
+              type="email"
+              placeholder="email@example.com"
+              class="newletter-input"
+            />
+            <button class="button newsletter-button">Subscribe</button>
+          </div>
 
-                    <div class="footer-linkContent">
-                          
-          
-                            <ul class="footer-links">
-                                    <h4 class="footerLinks-title">Support</h4>
+          <div class="newsletter media-icons flex">
+            <a href="https://www.facebook.com"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://twitter.com/i/flow/login"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+            <a href="https://www.instagram.com/accounts/login"
+              ><i class="bx bxl-instagram-alt"></i
+            ></a>
+            <a href="https://github.com/login"><i class="bx bxl-github"></i></a>
+            <a href="https://www.youtube.com/login"
+              ><i class="bx bxl-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </section>
 
-                                    <li><a href="#about" class="footer-link">About Us</a></li>
-                                    <li><a href="#review" class="footer-link">Tracker</a></li>
-                                    <li><a href="#menu" class="footer-link">Waste Management</a></li>
-                                    <li><a href="#" class="footer-link">Help Us</a></li>
-                            </ul>
-                    </div>
+      <!-- Sidebar -->
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h2>User Profile</h2>
+          <span id="close-sidebar">&times;</span>
+        </div>
+        <div class="sidebar-content">
+          <p id="userProfile">Loading...</p>
+          <button id="logout">Logout</button>
+        </div>
+      </div>
+
+      <div id="overlay"></div>
+      <!-- Footer Section -->
+      <footer class="section footer">
+        <div class="footer-container container">
+          <div class="footer-content">
+            <a href="#" class="logo-content flex">
+              <i class="bx bx-trash logo-icon"></i>
+              <span class="logo-text">TrashWell.</span>
+            </a>
+
+            <p class="content-description">
+              Reuse and Repurpose: Before throwing items away, think about how
+              they can be reused or repurposed.
+            </p>
+
+            <div class="footer-location flex">
+              <i class="bx bx-map map-icon"></i>
+
+              <div class="location-text">
+                Afrian Leadership University, Kigali, Rwanda
+              </div>
             </div>
-            <div class="footer-copyRight">&#169; TrashWell. All rigths reserved</div>
-        </footer>
+          </div>
 
-<!-- Scroll Up -->
-        <a href="#home" class="scrollUp-btn flex">
-                <i class='bx bx-up-arrow-alt scrollUp-icon'></i>
-        </a>
+          <div class="footer-linkContent">
+            <ul class="footer-links">
+              <h4 class="footerLinks-title">Support</h4>
 
-</main>
+              <li><a href="#about" class="footer-link">About Us</a></li>
+              <li><a href="#review" class="footer-link">Tracker</a></li>
+              <li><a href="#menu" class="footer-link">Waste Management</a></li>
+              <li><a href="#" class="footer-link">Help Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copyRight">
+          &#169; TrashWell. All rigths reserved
+        </div>
+      </footer>
 
-<!-- Swiper JS -->
-<script src="js/swiper-bundle.min.js"></script>
+      <!-- Scroll Up -->
+      <a href="#home" class="scrollUp-btn flex">
+        <i class="bx bx-up-arrow-alt scrollUp-icon"></i>
+      </a>
+    </main>
 
-<!-- Scroll Reveal -->
-<script src="js/scrollreveal.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
 
-<!-- JavaScript -->
+    <!-- Scroll Reveal -->
+    <script src="js/scrollreveal.js"></script>
+
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
     <script src="js/schedule.js"></script>
     <script src="js/recycle.js"></script>
     <script src="js/side.js"></script>
-</body>
+  </body>
 </html>
