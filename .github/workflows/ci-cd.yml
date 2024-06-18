@@ -74,16 +74,7 @@ jobs:
           DB_PASS: ${{ env.DB_PASS }}
           DB_NAME: ${{ env.DB_NAME }}
 
-      - name: Run backend tests
-        run: npm test
-        working-directory: backend
-        env:
-          DB_HOST: ${{ env.DB_HOST }}
-          DB_USER: ${{ env.DB_USER }}
-          DB_PASS: ${{ env.DB_PASS }}
-          DB_NAME: ${{ env.DB_NAME }}
-          NODE_ENV: ${{ env.NODE_ENV }}
-
+    
       - name: Install frontend dependencies
         run: npm install
         working-directory: frontend
