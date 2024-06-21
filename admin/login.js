@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             sessionStorage.setItem('authToken', data.token);
-            window.location.href = 'index.html';
+            window.location.href = 'auth.html';
         })
         .catch(error => {
             console.error('Error logging in:', error);

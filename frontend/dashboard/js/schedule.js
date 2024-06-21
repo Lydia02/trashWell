@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function setupUserInfoAndLogout() {
         const token = sessionStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '../index.html'; // Redirect to login if no token is found
+            window.location.href = '../auth.html'; // Redirect to login if no token is found
             return;
         }
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Error:', data.error);
                 alert('Error fetching data. Please try again.');
                 sessionStorage.removeItem('authToken');
-                window.location.href = '../index.html';
+                window.location.href = '../auth.html';
             } else {
                 userProfile.innerHTML = `
                     <p><strong>Name:</strong> ${data.firstname} ${data.lastname}</p>
@@ -67,14 +67,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById('logout').addEventListener('click', function() {
             sessionStorage.removeItem('authToken');
-            window.location.href = '../index.html';
+            window.location.href = '../auth.html';
         });
     }
 
     function fetchSchedules() {
         const token = sessionStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '../index.html'; // Redirect to login if no token is found
+            window.location.href = '../auth.html'; // Redirect to login if no token is found
             return;
         }
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const token = sessionStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '../index.html'; // Redirect to login if no token is found
+            window.location.href = '../auth.html'; // Redirect to login if no token is found
             return;
         }
 
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const token = sessionStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '../index.html'; // Redirect to login if no token is found
+            window.location.href = '../auth.html'; // Redirect to login if no token is found
             return;
         }
 
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function deleteSchedule(id) {
         const token = sessionStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '../index.html'; // Redirect to login if no token is found
+            window.location.href = '../auth.html'; // Redirect to login if no token is found
             return;
         }
 
