@@ -7,10 +7,10 @@
     <title>TrashWell Website</title>
 
     <!-- Swiper JS CSS-->
-    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="dashboard/css/swiper-bundle.min.css" />
 
     <!-- Scroll Reveal -->
-    <link rel="stylesheet" href="css/scrollreveal.min.js" />
+    <link rel="stylesheet" href="dashboard/css/scrollreveal.min.js" />
 
     <!-- Boxicons -->
     <link
@@ -36,7 +36,7 @@
             <li><a href="#home" class="nav-link active-navlink">Home</a></li>
             <li><a href="#about" class="nav-link">About Us</a></li>
             <li><a href="#review" class="nav-link">Reviews</a></li>
-            <li><a href="./auth.html" class="nav-link">Login/Register</a></li>
+            <li><a href="../auth.html" class="nav-link">Register/Login</a></li>
           </ul>
 
           <div class="media-icons flex">
@@ -165,13 +165,15 @@
             <div class="about-buttons flex">
               <button class="button">About Us</button>
               <a href="#" class="about-link flex">
-                <span class="link-text">see more</span>
+                <span class="link-text"><a href="../auth.html">Register/Login</a></span>
                 <i class="bx bx-right-arrow-alt about-arrowIcon"></i>
               </a>
             </div>
           </div>
         </div>
       </section>
+>
+              
 
       <!-- Reviews Section -->
       <section class="section review" id="review">
@@ -305,17 +307,7 @@
         </div>
       </section>
 
-      <!-- Sidebar -->
-      <div id="sidebar" class="sidebar">
-        <div class="sidebar-header">
-          <h2>User Profile</h2>
-          <span id="close-sidebar">&times;</span>
-        </div>
-        <div class="sidebar-content">
-          <p id="userProfile">Loading...</p>
-          <button id="logout">Logout</button>
-        </div>
-      </div>
+    
 
       <div id="overlay"></div>
       <!-- Footer Section -->
@@ -346,8 +338,8 @@
               <h4 class="footerLinks-title">Support</h4>
 
               <li><a href="#about" class="footer-link">About Us</a></li>
-              <li><a href="#review" class="footer-link">Tracker</a></li>
-              <li><a href="#menu" class="footer-link">Waste Management</a></li>
+              <li><a href="#review" class="footer-link">Review</a></li>
+              <li><a href="../frontend/auth.html" class="footer-link">Login</a></li>
               <li><a href="#" class="footer-link">Help Us</a></li>
             </ul>
           </div>
@@ -364,12 +356,13 @@
     </main>
 
     <!-- Swiper JS -->
-    <script src="js/swiper-bundle.min.js"></script>
+    <script src="dashboard/js/swiper-bundle.min.js"></script>
 
     <!-- Scroll Reveal -->
-    <script src="js/scrollreveal.js"></script>
+    <script src="dashboard/js/scrollreveal.js"></script>
 
     <!-- JavaScript -->
     <script src="dashboard/js/script.js"></script>
+
   </body>
 </html>
